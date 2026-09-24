@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuickCourt - Booking History</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f8f2;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+
+        nav {
+            background: #202820;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: #d8e94d;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d8e94d;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 45px auto;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-heading h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        /* Cancellation Policy */
+
+        .policy-box {
+            background: #fffbea;
+            border-left: 5px solid #e4a13a;
+            padding: 25px;
+            margin-bottom: 35px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .policy-box h2 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .policy-box ul {
+            padding-left: 22px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .policy-box p {
+            margin-top: 12px;
+            color: #666;
+        }
+
+        /* Booking Cards */
+
+        #bookingContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .history-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eeeeee;
+        }
+
+        .history-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 15px;
+        }
+
+        .history-card h2 {
+            font-size: 23px;
+            color: #222;
+        }
+
+        .history-card p {
+            margin: 12px 0;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .history-card strong {
+            color: #222;
+        }
+
+        /* Status */
+
+        .status {
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .confirmed {
+            background: #e3f7df;
+            color: #287a22;
+        }
+
+        .cancelled {
+            background: #ffe1e1;
+            color: #bd2929;
+        }
+
+        /* Buttons */
+
+        .cancel-btn {
+            background: #d93434;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 18px;
+        }
+
+        .cancel-btn:hover {
+            background: #b82020;
+        }
+
+        .cancel-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .cancelled-message {
+            background: #fff0f0;
+            color: #c62828 !important;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 18px !important;
+        }
+
+        .refund-box {
+            background: #eef9ed;
+            color: #26752b;
+            padding: 15px;
+            border-radius: 7px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .empty-message {
+            text-align: center;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            color: #777;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Mobile Responsive */
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .page-heading h1 {
+                font-size: 28px;
+            }
+
+            .history-card {
+                padding: 20px;
+            }
+
+            .history-card-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <h2>QuickCourt</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Book Now</a>
+            <a href="history.html">My Bookings</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+
+    <main class="container">
+
+        <div class="page-heading">
+            <h1>My Bookings</h1>
+            <p>View and manage your QuickCourt reservations.</p>
+        </div>
+
+        <!-- Cancellation Policy -->
+
+        <section class="policy-box">
+
+            <h2>Cancellation & Refund Policy</h2>
+
+            <ul>
+                <li>3+ days before booking: 10% cancellation charge</li>
+                <li>2 days before booking: 20% cancellation charge</li>
+                <li>1 day before booking: 30% cancellation charge</li>
+                <li>Same-day cancellation: 50% cancellation charge</li>
+            </ul>
+
+            <p>
+                Refund amount will be calculated after deducting
+                the applicable cancellation charge.
+            </p>
+
+        </section>
+
+        <!-- Bookings Will Appear Here -->
+
+        <section id="bookingContainer"></section>
+
+    </main>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            displayBookings();
+        });
+
+
+        /* Convert date into a valid Date object */
+
+        function convertToDate(dateString) {
+
+            if (!dateString) {
+                return null;
+            }
+
+            let dateParts;
+
+            // Format: DD-MM-YYYY
+
+            if (dateString.includes("-")) {
+
+                dateParts = dateString.split("-");
+
+                if (dateParts[0].length === 2) {
+
+                    return new Date(
+                        Number(dateParts[2]),
+                        Number(dateParts[1]) - 1,
+                        Number(dateParts[0])
+                    );
+
+                } else {
+
+                    // Format: YYYY-MM-DD
+
+                    return new Date(
+                        Number(dateParts[0]),
+                        Number(dateParts[1]) - 1,
+                        Number(dateParts[2])
+                    );
+                }
+            }
+
+            return new Date(dateString);
+        }
+
+
+        /* Calculate cancellation charge */
+
+        function calculateCancellationCharge(bookingDate) {
+
+            const today = new Date();
+
+            today.setHours(0, 0, 0, 0);
+
+            const selectedDate = convertToDate(bookingDate);
+
+            if (!selectedDate || isNaN(selectedDate.getTime())) {
+                return 50;
+            }
+
+            selectedDate.setHours(0, 0, 0, 0);
+
+            const differenceInMilliseconds =
+                selectedDate.getTime() - today.getTime();
+
+            const differenceInDays =
+                Math.ceil(
+                    differenceInMilliseconds / (1000 * 60 * 60 * 24)
+                );
+
+            if (differenceInDays >= 3) {
+                return 10;
+            } else if (differenceInDays === 2) {
+                return 20;
+            } else if (differenceInDays === 1) {
+                return 30;
+            } else {
+                return 50;
+            }
+        }
+
+
+        /* Display all bookings */
+
+        function displayBookings() {
+
+            const bookingContainer =
+                document.getElementById("bookingContainer");
+
+            bookingContainer.innerHTML = "";
+
+            let bookings =
+                JSON.parse(
+                    localStorage.getItem("quickcourtBookings")
+                ) || [];
+
+            if (bookings.length === 0) {
+
+                bookingContainer.innerHTML = `
+                    <div class="empty-message">
+                        <h2>No bookings found</h2>
+                        <p>Your confirmed bookings will appear here.</p>
+                    </div>
+                `;
+
+                return;
+            }
+
+            // Display latest booking first
+
+            bookings.reverse().forEach(function (booking) {
+
+                const bookingCard =
+                    document.createElement("div");
+
+                bookingCard.className = "history-card";
+
+                const bookingStatus =
+                    booking.status || "Confirmed";
+
+                const amount =
+                    Number(
+                        String(booking.amount || 0)
+                            .replace(/[₹,]/g, "")
+                    );
+
+                let actionSection = "";
+
+                if (bookingStatus !== "Cancelled") {
+
+                    actionSection = `
+                        <button
+                            class="cancel-btn"
+                            onclick="cancelBooking('${booking.id}')">
+                            Cancel Booking
+                        </button>
+                    `;
+
+                } else {
+
+                    actionSection = `
+                        <p class="cancelled-message">
+                            This booking has been cancelled.
+                        </p>
+                    `;
+
+                    if (booking.refundAmount !== undefined) {
+
+                        actionSection += `
+                            <div class="refund-box">
+                                <strong>Cancellation Charge:</strong>
+                                ₹${booking.cancellationCharge || 0}
+                                <br>
+
+                                <strong>Refund Amount:</strong>
+                                ₹${booking.refundAmount || 0}
+                            </div>
+                        `;
+                    }
+                }
+
+                bookingCard.innerHTML = `
+
+                    <div class="history-card-top">
+
+                        <h2>
+                            ${booking.courtName || "QuickCourt"}
+                        </h2>
+
+                        <span class="status ${
+                            bookingStatus === "Cancelled"
+                                ? "cancelled"
+                                : "confirmed"
+                        }">
+
+                            ${bookingStatus}
+
+                        </span>
+
+                    </div>
+
+                    <p>
+                        <strong>Booking Date:</strong>
+                        ${booking.date || "Not available"}
+                    </p>
+
+                    <p>
+                        <strong>Time Slot:</strong>
+                        ${booking.time || "Not available"}
+                    </p>
+
+                    <p>
+                        <strong>Amount:</strong>
+                        ₹${amount}
+                    </p>
+
+                    <p>
+                        <strong>Payment Method:</strong>
+                        ${booking.payment || "Not available"}
+                    </p>
+
+                    ${actionSection}
+
+                `;
+
+                bookingContainer.appendChild(bookingCard);
+
+            });
+        }
+
+
+        /* Cancel Booking */
+
+        function cancelBooking(bookingId) {
+
+            let bookings =
+                JSON.parse(
+                    localStorage.getItem("quickcourtBookings")
+                ) || [];
+
+            const bookingIndex =
+                bookings.findIndex(function (booking) {
+
+                    return String(booking.id) === String(bookingId);
+
+                });
+
+            if (bookingIndex === -1) {
+
+                alert("Booking not found.");
+
+                return;
+            }
+
+            const booking = bookings[bookingIndex];
+
+            if (booking.status === "Cancelled") {
+
+                alert("This booking is already cancelled.");
+
+                return;
+            }
+
+            const originalAmount =
+                Number(
+                    String(booking.amount || 0)
+                        .replace(/[₹,]/g, "")
+                );
+
+            const chargePercentage =
+                calculateCancellationCharge(booking.date);
+
+            const cancellationCharge =
+                Math.round(
+                    originalAmount * chargePercentage / 100
+                );
+
+            const refundAmount =
+                originalAmount - cancellationCharge;
+
+            const confirmationMessage =
+
+                "Are you sure you want to cancel this booking?\n\n" +
+
+                "Booking Amount: ₹" + originalAmount + "\n" +
+
+                "Cancellation Charge: " +
+                chargePercentage + "% = ₹" +
+                cancellationCharge + "\n\n" +
+
+                "Refund Amount: ₹" + refundAmount;
+
+            const userConfirmed =
+                confirm(confirmationMessage);
+
+            if (!userConfirmed) {
+                return;
+            }
+
+            // Update booking information
+
+            bookings[bookingIndex].status = "Cancelled";
+
+            bookings[bookingIndex].cancellationPercentage =
+                chargePercentage;
+
+            bookings[bookingIndex].cancellationCharge =
+                cancellationCharge;
+
+            bookings[bookingIndex].refundAmount =
+                refundAmount;
+
+            bookings[bookingIndex].cancelledOn =
+                new Date().toISOString().split("T")[0];
+
+            // Save updated bookings
+
+            localStorage.setItem(
+                "quickcourtBookings",
+                JSON.stringify(bookings)
+            );
+
+            alert(
+                "Booking cancelled successfully!\n\n" +
+                "Refund Amount: ₹" + refundAmount
+            );
+
+            // Refresh booking history
+
+            displayBookings();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

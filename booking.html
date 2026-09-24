@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Court | QuickCourt</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span>Q</span>
+            QuickCourt
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="history.html">My Bookings</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="login.html" class="nav-login">Login</a>
+            <a href="signup.html" class="nav-signup">Sign Up</a>
+        </nav>
+
+        <a href="booking.html" class="btn btn-primary btn-small">
+            Book Now ↗
+        </a>
+
+    </header>
+
+
+    <!-- ================= MAIN BOOKING PAGE ================= -->
+
+    <main class="booking-page">
+
+        <div class="booking-heading">
+
+            <p class="eyebrow">
+                RESERVE YOUR PLAYGROUND
+            </p>
+
+            <h1>
+                Book Your Court
+            </h1>
+
+            <p>
+                Select your court, choose your preferred time,
+                and customize your game experience.
+            </p>
+
+        </div>
+
+
+        <!-- TWO EQUAL COLUMNS -->
+
+        <div class="booking-layout">
+
+
+            <!-- ================= LEFT COLUMN ================= -->
+
+            <section class="booking-details">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h2>
+                    Booking Details
+                </h2>
+
+                <p class="section-description">
+                    Tell us when you want to play.
+                </p>
+
+
+                <!-- SELECT COURT -->
+
+                <div class="form-group">
+
+                    <label for="court">
+                        Select Court
+                    </label>
+
+                    <select id="court" name="court" required>
+
+                        <option value="City Cricket Ground">
+                            City Cricket Ground
+                        </option>
+
+                        <option value="Urban Football Turf">
+                            Urban Football Turf
+                        </option>
+
+                        <option value="Smash Badminton Arena">
+                            Smash Badminton Arena
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SELECT DATE -->
+
+                <div class="form-group">
+
+                    <label for="bookingDate">
+                        Select Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                        name="bookingDate"
+                        required
+                    >
+
+                    <small class="date-note">
+                        Previous dates are not available for booking.
+                    </small>
+
+                </div>
+
+
+                <!-- SELECT PLAYERS -->
+
+                <div class="form-group">
+
+                    <label for="players">
+                        Players
+                    </label>
+
+                    <select id="players" name="players" required>
+
+                        <option value="">
+                            Select number of players
+                        </option>
+
+                        <option value="2">
+                            2 players
+                        </option>
+
+                        <option value="3">
+                            3 players
+                        </option>
+
+                        <option value="4">
+                            4 players
+                        </option>
+
+                        <option value="5">
+                            5 players
+                        </option>
+
+                        <option value="6">
+                            6 players
+                        </option>
+
+                        <option value="7">
+                            7 players
+                        </option>
+
+                        <option value="8">
+                            8 players
+                        </option>
+
+                        <option value="9">
+                            9 players
+                        </option>
+
+                        <option value="10">
+                            10 players
+                        </option>
+
+                        <option value="11">
+                            11 players
+                        </option>
+
+                        <option value="12">
+                            12 players
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TIME SLOTS DIRECTLY BELOW PLAYERS -->
+
+                <div class="time-section">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <h2>
+                        Choose Your Time Slot
+                    </h2>
+
+                    <p class="section-description">
+                        Select a time slot for your booking.
+                    </p>
+
+
+                    <input
+                        type="hidden"
+                        id="bookingTime"
+                        name="bookingTime"
+                    >
+
+
+                    <div class="time-slot-grid">
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="06:00 AM - 08:00 AM"
+                            data-price="700"
+                        >
+                            <span>06:00 AM - 08:00 AM</span>
+                            <strong>₹700</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="08:00 AM - 10:00 AM"
+                            data-price="900"
+                        >
+                            <span>08:00 AM - 10:00 AM</span>
+                            <strong>₹900</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="10:00 AM - 12:00 PM"
+                            data-price="1100"
+                        >
+                            <span>10:00 AM - 12:00 PM</span>
+                            <strong>₹1100</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot special-slot"
+                            data-time="12:00 PM - 02:00 PM"
+                            data-price="1300"
+                        >
+                            <span>12:00 PM - 02:00 PM</span>
+                            <small>10% OFF</small>
+                            <strong>₹1300</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot special-slot"
+                            data-time="02:00 PM - 04:00 PM"
+                            data-price="1500"
+                        >
+                            <span>02:00 PM - 04:00 PM</span>
+                            <small>10% OFF</small>
+                            <strong>₹1500</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="04:00 PM - 06:00 PM"
+                            data-price="1700"
+                        >
+                            <span>04:00 PM - 06:00 PM</span>
+                            <strong>₹1700</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="06:00 PM - 08:00 PM"
+                            data-price="1900"
+                        >
+                            <span>06:00 PM - 08:00 PM</span>
+                            <strong>₹1900</strong>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="08:00 PM - 10:00 PM"
+                            data-price="2100"
+                        >
+                            <span>08:00 PM - 10:00 PM</span>
+                            <strong>₹2100</strong>
+                        </button>
+
+                    </div>
+
+
+                    <!-- SPECIAL OFFER -->
+
+                    <div class="special-offer">
+
+                        <h3>
+                            🎟 Special Timing Offer
+                        </h3>
+
+                        <p>
+                            Get 10% discount on bookings between
+                            12:00 PM - 02:00 PM and
+                            02:00 PM - 04:00 PM.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RIGHT COLUMN ================= -->
+
+            <section class="customization-section">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h2>
+                    Make It Yours
+                </h2>
+
+                <p class="section-description">
+                    Customize your game experience with optional add-ons.
+                </p>
+
+
+                <!-- ADD-ONS / EQUIPMENT -->
+
+                <div class="addons-section">
+
+                    <h3>
+                        Add Ons
+                        <span>(Optional)</span>
+                    </h3>
+
+                    <p class="addon-description">
+                        Enhance your game experience.
+                    </p>
+
+
+                    <!-- MINERAL WATER -->
+
+                    <div class="addon-card">
+
+                        <div class="addon-icon">
+                            💧
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Mineral Water
+                            </h4>
+
+                            <strong>
+                                ₹20
+                            </strong>
+
+                            <small>
+                                Per bottle
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('water', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="water-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('water', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROTEIN -->
+
+                    <div class="addon-card">
+
+                        <div class="addon-icon">
+                            🥤
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Protein Bar / Powder
+                            </h4>
+
+                            <strong>
+                                ₹100
+                            </strong>
+
+                            <small>
+                                Per serving
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('protein', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="protein-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('protein', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SNACKS -->
+
+                    <div class="addon-card">
+
+                        <div class="addon-icon">
+                            🍟
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Snacks
+                            </h4>
+
+                            <strong>
+                                ₹60
+                            </strong>
+
+                            <small>
+                                Per pack
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('snacks', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="snacks-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('snacks', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REFRESHMENTS -->
+
+                    <div class="addon-card">
+
+                        <div class="addon-icon">
+                            🧃
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Refreshments
+                            </h4>
+
+                            <strong>
+                                ₹50
+                            </strong>
+
+                            <small>
+                                Per bottle
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('refreshments', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="refreshments-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('refreshments', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CRICKET KIT -->
+
+                    <div class="addon-card equipment-addon">
+
+                        <div class="addon-icon">
+                            🏏
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Cricket Kit
+                            </h4>
+
+                            <strong>
+                                ₹100
+                            </strong>
+
+                            <small>
+                                Per kit
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('cricketKit', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="cricketKit-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('cricketKit', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STUMPS -->
+
+                    <div class="addon-card equipment-addon">
+
+                        <div class="addon-icon">
+                            🎯
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Stumps
+                            </h4>
+
+                            <strong>
+                                ₹50
+                            </strong>
+
+                            <small>
+                                Per set
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('stumps', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="stumps-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('stumps', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BADMINTON KIT -->
+
+                    <div class="addon-card equipment-addon">
+
+                        <div class="addon-icon">
+                            🏸
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Badminton Kit
+                            </h4>
+
+                            <strong>
+                                ₹80
+                            </strong>
+
+                            <small>
+                                Per kit
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('badmintonKit', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="badmintonKit-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('badmintonKit', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHUTTLECOCK -->
+
+                    <div class="addon-card equipment-addon">
+
+                        <div class="addon-icon">
+                            🪶
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Shuttlecock
+                            </h4>
+
+                            <strong>
+                                ₹30
+                            </strong>
+
+                            <small>
+                                Per piece
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('shuttleCock', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="shuttleCock-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('shuttleCock', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FOOTBALL -->
+
+                    <div class="addon-card equipment-addon">
+
+                        <div class="addon-icon">
+                            ⚽
+                        </div>
+
+                        <div class="addon-info">
+
+                            <h4>
+                                Football
+                            </h4>
+
+                            <strong>
+                                ₹70
+                            </strong>
+
+                            <small>
+                                Per ball
+                            </small>
+
+                        </div>
+
+                        <div class="quantity-control">
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('football', -1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="football-qty">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeAddon('football', 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= BOOKING SUMMARY ================= -->
+
+                <div class="price-summary">
+
+                    <h3>
+                        Booking Summary
+                    </h3>
+
+                    <div class="summary-row">
+
+                        <span>
+                            Court Price
+                        </span>
+
+                        <strong id="court-price">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Special Discount
+                        </span>
+
+                        <strong
+                            id="discount-amount"
+                            class="discount-text"
+                        >
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Add Ons Total
+                        </span>
+
+                        <strong id="addons-total">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row total-row">
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <strong id="total-amount">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PAYMENT METHOD -->
+
+                <div class="form-group">
+
+                    <label for="paymentMethod">
+                        Select Payment Method
+                    </label>
+
+                    <select
+                        id="paymentMethod"
+                        name="paymentMethod"
+                        required
+                    >
+
+                        <option value="">
+                            -- Select Payment Method --
+                        </option>
+
+                        <option value="UPI">
+                            UPI
+                        </option>
+
+                        <option value="Credit/Debit Card">
+                            Credit/Debit Card
+                        </option>
+
+                        <option value="Net Banking">
+                            Net Banking
+                        </option>
+
+                        <option value="Pay Later">
+                            Pay Later — 50% Deposit
+                        </option>
+
+                    </select>
+
+
+                    <div
+                        id="deposit-info"
+                        class="deposit-info"
+                    >
+
+                        <strong>
+                            Pay Later Option
+                        </strong>
+
+                        <p>
+                            Pay 50% of the total amount now.
+                            The remaining 50% can be paid at the venue.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Deposit Required:
+                            </strong>
+
+                            <span id="deposit-amount">
+                                ₹0
+                            </span>
+                        </p>
+
+                        <p>
+                            <strong>
+                                Remaining Amount:
+                            </strong>
+
+                            <span id="remaining-amount">
+                                ₹0
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TERMS AND CONDITIONS -->
+
+                <div class="terms-box">
+
+                    <label class="terms-label">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span>
+                            I agree to the QuickCourt
+
+                            <a
+                                href="terms.html"
+                                target="_blank"
+                            >
+                                Terms and Conditions
+                            </a>
+
+                            and cancellation policy.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- CONFIRM BOOKING -->
+
+                <button
+                    type="button"
+                    id="confirm-booking"
+                    class="btn btn-primary confirm-btn"
+                >
+                    Confirm Booking ↗
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="brand">
+            <span>Q</span>
+            QuickCourt
+        </div>
+
+        <p>
+            Made for people who love to play.
+        </p>
+
+        <p>
+            © 2026 QuickCourt
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

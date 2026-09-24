@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | QuickCourt</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span>Q</span>
+            QuickCourt
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="history.html">My Bookings</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </nav>
+
+        <a href="index.html#courts" class="btn btn-primary btn-small">
+            All Courts ↗
+        </a>
+
+    </header>
+
+
+    <main class="contact-page">
+
+        <div class="page-heading">
+
+            <p class="eyebrow">WE ARE HERE TO HELP</p>
+
+            <h1>Contact Us & Feedback</h1>
+
+            <p>
+                Have a question or want to share your experience?
+                We would love to hear from you.
+            </p>
+
+        </div>
+
+
+        <div class="contact-layout">
+
+            <!-- Contact Us Section -->
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <span class="step-number">1</span>
+
+                    <div>
+                        <h2>Contact Us</h2>
+                        <p>Get in touch with the QuickCourt team.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+                    <strong>📧 Email</strong>
+                    <p>support@quickcourt.com</p>
+                </div>
+
+
+                <div class="contact-item">
+                    <strong>📞 Phone</strong>
+                    <p>+91 98765 43210</p>
+                </div>
+
+
+                <div class="contact-item">
+                    <strong>📍 Address</strong>
+                    <p>QuickCourt Support Centre, India</p>
+                </div>
+
+
+                <div class="contact-item">
+                    <strong>🕒 Support Hours</strong>
+                    <p>Monday to Saturday: 9:00 AM – 6:00 PM</p>
+                </div>
+
+            </section>
+
+
+            <!-- Feedback Section -->
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <span class="step-number">2</span>
+
+                    <div>
+                        <h2>Share Your Feedback</h2>
+                        <p>Help us improve your QuickCourt experience.</p>
+                    </div>
+
+                </div>
+
+
+                <form id="feedbackForm">
+
+                    <label for="feedbackName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feedbackName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+
+                    <label for="feedbackEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="feedbackEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <label for="feedbackType">
+                        Feedback Type
+                    </label>
+
+                    <select id="feedbackType" required>
+
+                        <option value="">
+                            Select feedback type
+                        </option>
+
+                        <option>Website Experience</option>
+                        <option>Booking Experience</option>
+                        <option>Venue Experience</option>
+                        <option>Suggestion</option>
+                        <option>Complaint</option>
+                        <option>Other</option>
+
+                    </select>
+
+
+                    <label for="rating">
+                        Rate Your Experience
+                    </label>
+
+                    <select id="rating" required>
+
+                        <option value="">
+                            Select rating
+                        </option>
+
+                        <option>⭐⭐⭐⭐⭐ Excellent</option>
+                        <option>⭐⭐⭐⭐ Good</option>
+                        <option>⭐⭐⭐ Average</option>
+                        <option>⭐⭐ Poor</option>
+                        <option>⭐ Very Poor</option>
+
+                    </select>
+
+
+                    <label for="feedbackMessage">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="feedbackMessage"
+                        rows="5"
+                        placeholder="Write your feedback here..."
+                        required
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary full"
+                    >
+                        Submit Feedback ↗
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="contact.js"></script>
+
+</body>
+
+</html>
